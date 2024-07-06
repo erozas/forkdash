@@ -68,3 +68,6 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+gem 'rails_admin', '~> 3.0', github: "railsadminteam/rails_admin", branch: "master"
+gem "cssbundling-rails"
