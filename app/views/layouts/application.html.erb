@@ -12,7 +12,9 @@
   </head>
 
   <body>
-    <main class="container mx-auto mt-28 px-5 flex">
+    <main class="w-full">
+      <%= render "shared/navbar" %>
+      <%= render "shared/flash_messages" %>
       <%= yield %>
     </main>
   </body>

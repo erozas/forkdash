@@ -71,3 +71,7 @@ end
 
 gem 'rails_admin', '~> 3.0', github: "railsadminteam/rails_admin", branch: "master"
 gem "cssbundling-rails"
+
+gem "devise", "~> 4.9"
+gem 'friendly_id', '~> 5.5.0'
+
