@@ -1,0 +1,45 @@
+# == Schema Information
+#
+# Table name: addresses
+#
+#  id               :bigint           not null, primary key
+#  addressable_type :string           not null
+#  addressable_id   :bigint           not null
+#  line_1           :string           not null
+#  line_2           :string
+#  apt_number       :string
+#  zip_code         :string
+#  city             :string
+#  country          :string
+#  lat              :decimal(10, 6)   not null
+#  lng              :decimal(10, 6)   not null
+#  google_place_id  :string
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#
+
+one:
+  addressable: one
+  addressable_type: Addressable
+  line_1: MyString
+  line_2: MyString
+  apt_number: MyString
+  zip_code: MyString
+  city: MyString
+  country: MyString
+  lat: 9.99
+  lng: 9.99
+  google_place_id: MyString
+
+two:
+  addressable: two
+  addressable_type: Addressable
+  line_1: MyString
+  line_2: MyString
+  apt_number: MyString
+  zip_code: MyString
+  city: MyString
+  country: MyString
+  lat: 9.99
+  lng: 9.99
+  google_place_id: MyString

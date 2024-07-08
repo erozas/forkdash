@@ -53,6 +53,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'annotate'
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
 
@@ -73,5 +74,9 @@ gem 'rails_admin', '~> 3.0', github: "railsadminteam/rails_admin", branch: "mast
 gem "cssbundling-rails"
 
 gem "devise", "~> 4.9"
+gem "figaro"
 gem 'friendly_id', '~> 5.5.0'
 
+
+gem "avo", ">= 3.2.1"
+gem "sidekiq", "~> 7.3"

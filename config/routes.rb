@@ -1,9 +1,13 @@
-Rails.application.routes.draw do
-  devise_for :users
+require "sidekiq/web"
 
-  #Admin route constraint
-  constraints ->(request) { request.env['warden'].authenticate? and request.env['warden'].user.admin? } do
+Rails.application.routes.draw do
+  mount Avo::Engine, at: Avo.configuration.root_path
+  devise_for :users
+  
+  # Admin route constraint
+  authenticated :user, -> (user) { user.admin? } do
     mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+    mount Sidekiq::Web => "/sidekiq"
   end
   
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

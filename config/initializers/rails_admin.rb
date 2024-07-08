@@ -39,4 +39,43 @@ RailsAdmin.config do |config|
     # history_index
     # history_show
   end
+
+  config.model "Address" do
+    list do
+      field :country
+      field :city
+      field :line_1
+      field :line_2
+      field :addressable
+      field :lat
+      field :lng
+      field :created_at
+    end
+  end
+
+  config.model "User" do
+    list do
+      field :avatar, :active_storage
+      field :username
+      field :email
+      field :phone_number
+      field :phone_number_verified
+      field :admin
+      field :created_at
+    end
+
+    create do
+      field :avatar
+      field :email
+      field :username
+      field :password
+      field :phone_number
+      field :admin
+      field :addresses
+    end
+
+    object_label_method do
+      :username
+    end
+  end
 end
