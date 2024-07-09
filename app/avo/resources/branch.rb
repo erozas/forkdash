@@ -1,5 +1,6 @@
 class Avo::Resources::Branch < Avo::BaseResource
   self.includes = []
+  self.extra_params = [seo_metadata_attributes: [:id, :title, :description]]
   self.find_record_method = -> {
     if id.is_a?(Array)
       query.where(slug: id)
@@ -16,6 +17,8 @@ class Avo::Resources::Branch < Avo::BaseResource
     field :name, as: :text
     field :description, as: :trix
     field :headquarters, as: :boolean
+    field :meta_title, as: :text
+    field :meta_description, as: :textarea
     field :slug, as: :text
   end
 end

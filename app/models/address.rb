@@ -16,6 +16,7 @@
 #  google_place_id  :string
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
+#  default          :boolean          default(FALSE)
 #
 class Address < ApplicationRecord
   belongs_to :addressable, polymorphic: true
@@ -24,7 +25,10 @@ class Address < ApplicationRecord
   validates :lat, presence: true, numericality: { greater_than_or_equal_to: -90, less_than_or_equal_to: 90 }
   validates :lng, presence: true, numericality: { greater_than_or_equal_to: -180, less_than_or_equal_to: 180 }
 
-  after_save :set_google_place_id
+  scope :default, -> { where(default: true) }
+  scope :not_default, -> { where(default: false) }
+
+  before_create :set_google_place_id
 
   def lat_lng
     "#{lat},#{lng}"

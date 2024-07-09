@@ -73,6 +73,7 @@ end
 gem "rails_admin", "~> 3.0", github: "railsadminteam/rails_admin", branch: "master"
 gem "cssbundling-rails"
 
+gem 'ancestry'
 gem "devise", "~> 4.9"
 gem "figaro"
 gem "friendly_id", "~> 5.5.0"
