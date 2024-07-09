@@ -27,16 +27,16 @@ Avo.configure do |config|
   # end
 
   ## == Authorization ==
-  # config.authorization_methods = {
-  #   index: 'index?',
-  #   show: 'show?',
-  #   edit: 'edit?',
-  #   new: 'new?',
-  #   update: 'update?',
-  #   create: 'create?',
-  #   destroy: 'destroy?',
-  #   search: 'search?',
-  # }
+  config.authorization_methods = {
+    index: 'index?',
+    show: 'show?',
+    edit: 'edit?',
+    new: 'new?',
+    update: 'update?',
+    create: 'create?',
+    destroy: 'destroy?',
+    search: 'avo_search?',
+  }
   # config.raise_error_on_missing_policy = false
   # config.authorization_client = :pundit
 
@@ -94,20 +94,20 @@ Avo.configure do |config|
   # config.resource_parent_controller = "Avo::ResourcesController"
 
   ## == Branding ==
-  # config.branding = {
-  #   colors: {
-  #     background: "248 246 242",
-  #     100 => "#CEE7F8",
-  #     400 => "#399EE5",
-  #     500 => "#0886DE",
-  #     600 => "#066BB2",
-  #   },
-  #   chart_colors: ["#0B8AE2", "#34C683", "#2AB1EE", "#34C6A8"],
-  #   logo: "/avo-assets/logo.png",
-  #   logomark: "/avo-assets/logomark.png",
-  #   placeholder: "/avo-assets/placeholder.svg",
-  #   favicon: "/avo-assets/favicon.ico"
-  # }
+  config.branding = {
+    colors: {
+      background: "248 246 242",
+      100 => "#CEE7F8",
+      400 => "#399EE5",
+      500 => "#0886DE",
+      600 => "#066BB2",
+    },
+    chart_colors: ["#0B8AE2", "#34C683", "#2AB1EE", "#34C6A8"],
+    logo: "/avo-assets/logo.png",
+    logomark: "/avo-assets/logomark.png",
+    placeholder: "/avo-assets/placeholder.svg",
+    favicon: "/avo-assets/favicon.ico"
+  }
 
   ## == Breadcrumbs ==
   # config.display_breadcrumbs = true

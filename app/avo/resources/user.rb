@@ -8,9 +8,10 @@ class Avo::Resources::User < Avo::BaseResource
       query.friendly.find(id)
     end
   }
-  # self.search = {
-  #   query: -> { query.ransack(id_eq: params[:q], m: "or").result(distinct: false) }
-  # }
+
+  self.search = {
+    query: -> { query.ransack(id_eq: params[:q], m: "or").result(distinct: false) }
+  }
 
   def fields
     field :avatar, as: :file, is_image: true, link_to_record: true

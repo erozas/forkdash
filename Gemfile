@@ -79,4 +79,7 @@ gem 'friendly_id', '~> 5.5.0'
 
 
 gem "avo", ">= 3.2.1"
+gem 'ransack'
 gem "sidekiq", "~> 7.3"
+
+gem "pundit", "~> 2.3"

@@ -43,4 +43,12 @@ class User < ApplicationRecord
 
   extend FriendlyId
   friendly_id :username, use: [:slugged, :history]
+
+  def self.ransackable_attributes(auth_object = nil)
+    %w[email username phone_number]
+  end
+
+  def self.ransackable_associations(auth_object = nil)
+    []
+  end
 end
