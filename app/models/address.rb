@@ -26,9 +26,13 @@ class Address < ApplicationRecord
 
   after_save :set_google_place_id
 
+  def lat_lng
+    "#{lat},#{lng}"
+  end
+
   private
 
   def set_google_place_id
-    Addresses::SetGooglePlaceIdWorker.perform_async(id)
+    Addresses::SetGooglePlaceIdWorker.perform_async(self.id)
   end
 end

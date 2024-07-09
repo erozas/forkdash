@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_07_043724) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_09_052929) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -59,6 +59,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_07_043724) do
     t.index ["addressable_type", "addressable_id"], name: "index_addresses_on_addressable"
   end
 
+  create_table "branches", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.boolean "headquarters"
+    t.string "slug"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string "slug", null: false
     t.integer "sluggable_id", null: false
@@ -68,6 +77,30 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_07_043724) do
     t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
     t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
     t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
+  end
+
+  create_table "phone_numbers", force: :cascade do |t|
+    t.string "phoneable_type", null: false
+    t.bigint "phoneable_id", null: false
+    t.string "area_code", null: false
+    t.string "number", null: false
+    t.string "extension"
+    t.boolean "default", default: false
+    t.boolean "verified", default: false
+    t.boolean "banned", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["phoneable_type", "phoneable_id"], name: "index_phone_numbers_on_phoneable"
+  end
+
+  create_table "seo_metadata", force: :cascade do |t|
+    t.string "seoable_type", null: false
+    t.bigint "seoable_id", null: false
+    t.string "title"
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["seoable_type", "seoable_id"], name: "index_seo_metadata_on_seoable"
   end
 
   create_table "users", force: :cascade do |t|

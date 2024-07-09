@@ -25,9 +25,9 @@
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #
-class User < ApplicationRecord
-  
+class User < ApplicationRecord  
   has_many :addresses, as: :addressable
+  has_many :phone_numbers, as: :phoneable
 
   has_one_attached :avatar, dependent: :destroy
   attr_accessor :remove_avatar

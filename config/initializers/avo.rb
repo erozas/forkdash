@@ -14,7 +14,7 @@ Avo.configure do |config|
   # config.home_path = nil
 
   ## == Licensing ==
-  # config.license_key = ENV['AVO_LICENSE_KEY']
+  config.license_key = ENV['AVO_LICENSE_KEY']
 
   ## == Set the context ==
   config.set_context do
@@ -27,16 +27,16 @@ Avo.configure do |config|
   # end
 
   ## == Authorization ==
-  config.authorization_methods = {
-    index: 'index?',
-    show: 'show?',
-    edit: 'edit?',
-    new: 'new?',
-    update: 'update?',
-    create: 'create?',
-    destroy: 'destroy?',
-    search: 'avo_search?',
-  }
+  # config.authorization_methods = {
+  #   index: 'index?',
+  #   show: 'show?',
+  #   edit: 'edit?',
+  #   new: 'new?',
+  #   update: 'update?',
+  #   create: 'create?',
+  #   destroy: 'destroy?',
+  #   search: 'search?',
+  # }
   # config.raise_error_on_missing_policy = false
   # config.authorization_client = :pundit
 
@@ -95,18 +95,18 @@ Avo.configure do |config|
 
   ## == Branding ==
   config.branding = {
-    colors: {
-      background: "248 246 242",
-      100 => "#CEE7F8",
-      400 => "#399EE5",
-      500 => "#0886DE",
-      600 => "#066BB2",
-    },
-    chart_colors: ["#0B8AE2", "#34C683", "#2AB1EE", "#34C6A8"],
-    logo: "/avo-assets/logo.png",
-    logomark: "/avo-assets/logomark.png",
+    # colors: {
+    #   background: "248 246 242",
+    #   100 => "#CEE7F8",
+    #   400 => "#399EE5",
+    #   500 => "#0886DE",
+    #   600 => "#066BB2",
+    # },
+    # chart_colors: ["#0B8AE2", "#34C683", "#2AB1EE", "#34C6A8"],
+    logo: "/images/logo.svg",
+    logomark: "/images/logo_mark.svg",
     placeholder: "/avo-assets/placeholder.svg",
-    favicon: "/avo-assets/favicon.ico"
+    # favicon: "/avo-assets/favicon.ico"
   }
 
   ## == Breadcrumbs ==
@@ -116,19 +116,19 @@ Avo.configure do |config|
   # end
 
   ## == Menus ==
-  # config.main_menu = -> {
-  #   section "Dashboards", icon: "dashboards" do
-  #     all_dashboards
-  #   end
+  config.main_menu = -> {
+    section "Resources" do
+      group "Users" do
+        resource :address
+        resource :user
+        resource :phone_number
+      end
 
-  #   section "Resources", icon: "resources" do
-  #     all_resources
-  #   end
-
-  #   section "Tools", icon: "tools" do
-  #     all_tools
-  #   end
-  # }
+      group "Businesses" do
+        resource :branch
+      end
+    end
+  }
   # config.profile_menu = -> {
   #   link "Profile", path: "/avo/profile", icon: "user-circle"
   # }
