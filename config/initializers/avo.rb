@@ -50,7 +50,7 @@ Avo.configure do |config|
   # config.per_page = 24
   # config.per_page_steps = [12, 24, 48, 72]
   # config.via_per_page = 8
-  # config.id_links_to_resource = false
+  config.id_links_to_resource = true
 
   ## == Cache options ==
   ## Provide a lambda to customize the cache store used by Avo.
@@ -125,6 +125,8 @@ Avo.configure do |config|
       end
 
       group "Businesses" do
+        resource :business
+        resource :category
         resource :branch
       end
 

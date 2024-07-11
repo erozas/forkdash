@@ -73,18 +73,22 @@ end
 gem "rails_admin", "~> 3.0", github: "railsadminteam/rails_admin", branch: "master"
 gem "cssbundling-rails"
 
-gem 'ancestry'
+# Avo Admin
+gem "activestorage"
+gem "avo", ">= 3.2.1"
+gem "avo-pro", ">= 3.2.0", source: "https://packager.dev/avo-hq/"
+gem "countries", "~> 6.0"
+gem "mapkick-rb"
+gem "ransack"
+
+gem "acts_as_list"
+gem "ancestry"
 gem "devise", "~> 4.9"
 gem "figaro"
 gem "friendly_id", "~> 5.5.0"
-
-gem "avo", ">= 3.2.1"
-gem "avo-pro", ">= 3.2.0", source: "https://packager.dev/avo-hq/"
-
-gem "mapkick-rb"
-gem "ransack"
-gem "sidekiq", "~> 7.3"
-
+gem "image_processing"
 gem "pundit", "~> 2.3"
 
-gem "countries", "~> 6.0"
+gem "sidekiq", "~> 7.3"
+
+

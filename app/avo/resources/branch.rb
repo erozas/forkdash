@@ -8,17 +8,19 @@ class Avo::Resources::Branch < Avo::BaseResource
       query.friendly.find(id)
     end
   }
-  # self.search = {
-  #   query: -> { query.ransack(id_eq: params[:q], m: "or").result(distinct: false) }
-  # }
+  
+  self.search = {
+    query: -> { query.ransack(id_eq: params[:q], m: "or").result(distinct: false) }
+  }
 
   def fields
     field :id, as: :id
+    field :business, as: :belongs_to
+    field :address, as: :belongs_to
     field :name, as: :text
     field :description, as: :trix
     field :headquarters, as: :boolean
     field :meta_title, as: :text
     field :meta_description, as: :textarea
-    field :slug, as: :text
   end
 end

@@ -42,7 +42,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   extend FriendlyId
-  friendly_id :username, use: [:slugged, :history]
+  friendly_id :username, use: :slugged
 
   def self.ransackable_attributes(auth_object = nil)
     %w[email username phone_number]
@@ -50,5 +50,11 @@ class User < ApplicationRecord
 
   def self.ransackable_associations(auth_object = nil)
     []
+  end
+
+  private
+
+  def should_generate_new_friendly_id?
+    slug.blank? || username_changed?
   end
 end

@@ -28,7 +28,7 @@ class Address < ApplicationRecord
   scope :default, -> { where(default: true) }
   scope :not_default, -> { where(default: false) }
 
-  before_create :set_google_place_id
+  after_create :set_google_place_id
 
   def lat_lng
     "#{lat},#{lng}"
