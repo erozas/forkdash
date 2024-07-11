@@ -127,6 +127,10 @@ Avo.configure do |config|
       group "Businesses" do
         resource :branch
       end
+
+      group "Blog" do
+        resource :articles
+      end
     end
   }
   # config.profile_menu = -> {

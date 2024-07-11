@@ -13,7 +13,8 @@
 #  meta_description :string
 #
 class Branch < ApplicationRecord
-  # Belong to a polymorphic address
+  has_one_attached :logo
+  
   has_many :addresses, as: :addressable, inverse_of: :addressable
   has_many :phone_numbers, as: :phoneable
   has_many :seo_metadata, as: :seoable
